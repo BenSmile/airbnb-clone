@@ -52,7 +52,7 @@ const LoginModal = () => {
             <div className="text-neutral-500 text-center font-light mt-4">
                 <div className=" flex flex-row justify-center items-center gap-2">
                     <div className="">
-                        Already have an account?
+                        First time using Airbnb?
                     </div>
                     <div
                         onClick={loginModal.onClose}
