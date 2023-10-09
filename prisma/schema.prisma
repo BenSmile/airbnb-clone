@@ -1,4 +1,4 @@
-// This is your Prisma schema file,
+// / This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
@@ -34,7 +34,7 @@ model Account {
   providerAccountId String
   refresh_token     String? @db.String
   access_token      String?  @db.String
-  expired_at        Int?
+  expires_at        Int?
   token_type        String?
   scope             String?
   id_token          String?  @db.String

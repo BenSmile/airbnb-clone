@@ -1,9 +1,8 @@
 'use client';
 
-import axios from 'axios';
 import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import useLoginModal from '@/app/hooks/useLoginModal';
 import Modal from './Modal';
@@ -13,6 +12,7 @@ import { toast } from 'react-hot-toast';
 import Button from '../Button';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+
 const LoginModal = () => {
 
     const loginModal = useLoginModal();
@@ -46,8 +46,8 @@ const LoginModal = () => {
 
     const footerContent = (
         <div className="flex flex-col gap-4 mt-3">
-            <Button outline label='Continue with Google' icon={FcGoogle} onClick={() => { }} />
-            <Button outline label='Continue with Github' icon={AiFillGithub} onClick={() => { }} />
+            <Button outline label='Continue with Google' icon={FcGoogle} onClick={() => signIn('google')} />
+            <Button outline label='Continue with Github' icon={AiFillGithub} onClick={() => signIn('github')} />
 
             <div className="text-neutral-500 text-center font-light mt-4">
                 <div className=" flex flex-row justify-center items-center gap-2">
@@ -74,9 +74,9 @@ const LoginModal = () => {
                     toast.success('Logged in');
                     router.refresh();
                     loginModal.onClose();
-                  
+
                 }
-                if(callback?.error){
+                if (callback?.error) {
                     toast.error(callback.error);
                 }
             })
